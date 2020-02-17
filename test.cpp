@@ -7,7 +7,6 @@
 using namespace std;
 
 int main(){
-  int test=(1<<3);
-  cout<< test  << "\n";
+  cout<< (3*2)/2  << "\n";
 
 }
