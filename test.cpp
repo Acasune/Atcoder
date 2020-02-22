@@ -5,7 +5,8 @@ using namespace std;
 typedef long long ll;
  
 int main(){
+    double x=5.0;
 
-    cout << (true?0:9) << "\n";
+    cout << (round(x/3)) << "\n";
     return 0;
 }

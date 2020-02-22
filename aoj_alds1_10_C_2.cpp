@@ -1,32 +1,32 @@
-#include<iostream>
-#include<vector>
-#include<queue>
-#include <string.h>
-#include <algorithm>
+#include <bits/stdc++.h>
+
 using namespace std;
 typedef long long ll;
 typedef long double lb;
-#define mod 1000000007
-#define rep(i,j,n) for (int i=j;i<(n);i++)
-#define rrep(i,n) for (int i = n; 0<i;i--)
+#define mod 11000000007
+#define REP(i,j,n) for (int i=j;i<(n);i++)
+#define RREP(i,n) for (int i = n; 0<i;i--)
 #define print(out) cout<< out  << "\n";
 
 int main(){
-  int Q;cin>>Q;
-  string X[Q],Y[Q];
-  REP(q,0,Q)cin>>X[q]>>Y[q];
-  int dp[1010][1010];
-  REP(q,0,Q){
-    int x_l=X[q].length(),y_l=Y[q].length();
-    REP(i,0,1001)REP(j,0,1001)dp[i][j]=0;
-    REP(x,0,x_l)REP(y,0,y_l){
-      if(X[q][x]==Y[q][y]){
-        dp[x+1][y+1]=max({dp[x][y]+1,dp[x+1][y],dp[x][y+1]});
-      }
-      else{
-        dp[x+1][y+1]=max(dp[x+1][y],dp[x][y+1]);
-      }
+  int N,W;cin>>N>>W;
+  int v_l[N],w_l[N];
+  REP(n,0,N)cin>>v_l[n]>>w_l[n];
+
+  int dp[W+1][N+1];
+  memset(dp,0,sizeof(dp));
+  int v_t,w_t;
+
+  REP(n,0,N)REP(w,0,W+1)
+  {
+    v_t=v_l[n],w_t=w_l[n];
+    if(w<w_t){
+      dp[w][n+1]=dp[w][n];
     }
-    print(dp[x_l][y_l]);
+    else{
+     dp[w][n+1]=max(dp[w][n],dp[w-w_t][n+1]+v_t);
+    }
   }
+  print(dp[W][N])
+
 }
