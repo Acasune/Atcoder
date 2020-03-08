@@ -1,3 +1,3 @@
-    // REP(h,H,H+10){
-    //   cout<<dp[h]<<" ";
-    // }
+      cout<<"\n";
+      REP(i,0,N)cout<<G[i]<<" ";
+      cout<<"\n";

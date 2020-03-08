@@ -9,13 +9,16 @@ typedef long double lb;
 const int INF = 1e9;
 typedef pair<ll,ll> P;
 
+ll N,A,B;
 int main(){
-  int N;cin>>N;
-  set<int> s;
-  REP(i,0,N){
-    int d;
-    cin>>d;
-    s.insert(d);
+  cin>>N>>A>>B;
+  ll AB=A+B;
+  ll ans =(N/AB)*A;
+  ll md = N%AB;
+
+  if(md-A>0){
+    print((ans+A))
   }
-  print(s.size())
+  else print((ans+md));
+
 }

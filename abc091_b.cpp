@@ -10,12 +10,24 @@ const int INF = 1e9;
 typedef pair<ll,ll> P;
 
 int main(){
-  int N;cin>>N;
-  set<int> s;
+  string sl[200];
+  int N,M;
+  map<string,int> mp;
+  cin>>N;
+  string s;
   REP(i,0,N){
-    int d;
-    cin>>d;
-    s.insert(d);
+    cin>>s;
+    mp[s]++;
   }
-  print(s.size())
+  cin>>M;
+  REP(i,N,N+M){
+    cin>>s;
+    mp[s]--;
+  }
+  int ans=0;
+  for(auto m:mp){
+    ans=max(ans,m.second);
+  }
+  print(ans);
+
 }

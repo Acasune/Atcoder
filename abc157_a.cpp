@@ -11,11 +11,6 @@ typedef pair<ll,ll> P;
 
 int main(){
   int N;cin>>N;
-  set<int> s;
-  REP(i,0,N){
-    int d;
-    cin>>d;
-    s.insert(d);
-  }
-  print(s.size())
+  if(N%2==0)print(N/2)
+  else print((N/2 +1))
 }

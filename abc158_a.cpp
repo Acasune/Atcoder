@@ -9,13 +9,18 @@ typedef long double lb;
 const int INF = 1e9;
 typedef pair<ll,ll> P;
 
+int N,M;
+string S;
 int main(){
-  int N;cin>>N;
-  set<int> s;
-  REP(i,0,N){
-    int d;
-    cin>>d;
-    s.insert(d);
+  cin>>S;
+  int a=0,b=0;
+  REP(i,0,3){
+    if(S[i]=="A"[0]){
+      a++;
+    }
+    else b++;
   }
-  print(s.size())
+  if((a==3)or(b==3))print("No")
+  else print("Yes")
+
 }

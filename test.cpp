@@ -5,8 +5,7 @@ using namespace std;
 typedef long long ll;
  
 int main(){
-    double x=5.0;
-
-    cout << (round(x/3)) << "\n";
-    return 0;
+    vector<int> a={1,2,3,4,5,6,7};
+    int b=a(1:3);
+    REP(i,0,3)print(b[i]);
 }

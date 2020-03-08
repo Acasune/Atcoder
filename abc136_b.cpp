@@ -7,15 +7,13 @@ typedef long double lb;
 #define print(out) cout<< out  << "\n";
 #define mod 1000000007
 const int INF = 1e9;
-typedef pair<ll,ll> P;
 
 int main(){
-  int N;cin>>N;
-  set<int> s;
-  REP(i,0,N){
-    int d;
-    cin>>d;
-    s.insert(d);
+  int N,ans=0;cin>>N;
+  string s="";
+  REP(i,1,N+1){
+    s=to_string(i);
+    if(s.size()%2==1)ans++;
   }
-  print(s.size())
+  print(ans)
 }
