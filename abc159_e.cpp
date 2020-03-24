@@ -11,8 +11,10 @@ typedef long double ld;
 #define all(vec) vec.begin(),vec.end()
 #define mod 1000000007
 const int INF = 1e9;
+const ld eps = 1.0e-9; // 許容される誤差
+
 
 int main(){
-  int N,M;cin>>N>>M;
-  print((100*(N-M)+1900*M*4))
+  ll H,W,K;cin>>H>>W>>K;
+  
 }

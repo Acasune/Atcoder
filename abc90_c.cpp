@@ -4,7 +4,6 @@ typedef long long ll;
 typedef long double lb;
 typedef vector<int,vector<int>> vec;
 typedef pair<int,int> P;
-typedef long double ld;
 #define REP(i,j,n) for (int i=j;i<(n);i++)
 #define RREP(i,n,j) for (int i = n; j<i;i--)
 #define print(out) cout<< out  << "\n";
@@ -13,6 +12,19 @@ typedef long double ld;
 const int INF = 1e9;
 
 int main(){
-  int N,M;cin>>N>>M;
-  print((100*(N-M)+1900*M*4))
+  ll N,M;cin>>N>>M;
+  if(N==1&&M==1){
+    print(1);
+    return 0;
+  }
+  else if(N==1){
+    print(max(M-2,0LL))
+    return 0;
+  }
+  else if(M==1){
+    print(max(N-2,0LL))
+    return 0;
+  }
+  print(max((N-2)*(M-2),0LL))
+  return 0;
 }

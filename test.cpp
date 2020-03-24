@@ -1,11 +1,29 @@
 #include <bits/stdc++.h>
-#define REP(I,J,N) for (int I=J;I<(N);I++)
 using namespace std;
-#define MOD 1000000007
 typedef long long ll;
- 
+typedef long double lb;
+typedef vector<int,vector<int>> vec;
+typedef pair<int,int> P;
+typedef long double ld;
+#define REP(i,j,n) for (int i=j;i<(n);i++)
+#define RREP(i,n,j) for (int i = n; j<i;i--)
+#define print(out) cout<< out  << "\n";
+#define all(vec) vec.begin(),vec.end()
+#define mod 1000000007
+const int INF = 1e9;
+
+ll mod_pow(ll x,ll n,ll m){
+    if(n==0) return 1;
+    ll res=mod_pow(x*x%m,n/2,m);
+    //cout<<n<<"-"<<res<<"-"<<res*x<<"\n";
+    if(n&1) {//cout<<x<<"-"<<res*x<<"\n";
+      //cout<<n<<"-"<<res<<"-"<<res*x<<"\n";
+      res=res*x%m;
+    }
+    //print(n)
+    return res;
+}
 int main(){
-    vector<int> a={1,2,3,4,5,6,7};
-    int b=a(1:3);
-    REP(i,0,3)print(b[i]);
+    ll test=mod_pow(5,3,13);
+    print(test);
 }

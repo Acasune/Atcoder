@@ -13,6 +13,20 @@ typedef long double ld;
 const int INF = 1e9;
 
 int main(){
-  int N,M;cin>>N>>M;
-  print((100*(N-M)+1900*M*4))
+  int N,K,a;cin>>N>>K;
+  map<int,int> mp;
+  REP(i,0,N){
+    cin>>a;
+    mp[a]++;
+  }
+  int ans=0,idx=0;
+  vector<int>vec(mp.size());
+  for(auto m:mp){
+    vec[idx]=m.second;
+    idx++;
+  }
+  sort(all(vec));
+  REP(i,0,max((int)vec.size()-K,0)){ans+=vec[i];}
+  print(ans)
+
 }

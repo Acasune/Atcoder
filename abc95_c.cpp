@@ -3,8 +3,7 @@ using namespace std;
 typedef long long ll;
 typedef long double lb;
 typedef vector<int,vector<int>> vec;
-typedef pair<int,int> P;
-typedef long double ld;
+typedef pair<string,int> P;
 #define REP(i,j,n) for (int i=j;i<(n);i++)
 #define RREP(i,n,j) for (int i = n; j<i;i--)
 #define print(out) cout<< out  << "\n";
@@ -13,6 +12,15 @@ typedef long double ld;
 const int INF = 1e9;
 
 int main(){
-  int N,M;cin>>N>>M;
-  print((100*(N-M)+1900*M*4))
+  int A,B,C,X,Y;cin>>A>>B>>C>>X>>Y;
+  int AB_price=min(A+B,2*C);
+  int ans=0;
+  if(X>Y){
+    ans=Y*AB_price+(X-Y)*A;
+  }
+  else{
+    ans=X*AB_price+(Y-X)*B;
+  }
+  ans=min(ans,max(X,Y)*AB_price);
+  print(ans)
 }

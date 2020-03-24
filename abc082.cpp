@@ -13,6 +13,15 @@ typedef long double ld;
 const int INF = 1e9;
 
 int main(){
-  int N,M;cin>>N>>M;
-  print((100*(N-M)+1900*M*4))
+  int N,a;cin>>N;
+  map<int,int>mp;
+  REP(i,0,N){
+    cin>>a;
+    mp[a]++;
+  }
+  int ans=0;
+  for(auto m :mp){
+    ans+=(m.first>m.second?m.second:m.second-m.first);
+  }
+  print(ans)
 }

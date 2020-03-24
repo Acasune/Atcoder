@@ -61,9 +61,6 @@ public:
 };
  
 
-int main(){
-  print((4*mod_pow(2,mod-2,mod))/mod)
-}
 
 void dijkstra(int s){
   fill(G,G+100,INF);
@@ -107,4 +104,43 @@ vector<ll> dijkstra2(ll s, vector<edge> G[]){
     }
   }
   return d;
+}
+
+
+bool IsPrime(int num)
+{
+    if (num < 2) return false;
+    else if (num == 2) return true;
+    else if (num % 2 == 0) return false; // 偶数はあらかじめ除く
+
+    double sqrtNum = sqrt(num);
+    for (int i = 3; i <= sqrtNum; i += 2)
+    {
+        if (num % i == 0)
+        {
+            // 素数ではない
+            return false;
+        }
+    }
+
+    // 素数である
+    return true;
+}
+
+
+ll gcd(ll a, ll b)
+{
+   if (a%b == 0)
+   {
+       return(b);
+   }
+   else
+   {
+       return(gcd(b, a%b));
+   }
+}
+
+ll lcm(ll a, ll b)
+{
+   return a * b / gcd(a, b);
 }

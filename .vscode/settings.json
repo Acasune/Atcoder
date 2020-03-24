@@ -4,6 +4,16 @@
     "utility": "cpp",
     "filesystem": "cpp",
     "vector": "cpp",
-    "iosfwd": "cpp"
+    "iosfwd": "cpp",
+    "tuple": "cpp",
+    "functional": "cpp",
+    "algorithm": "cpp",
+    "chrono": "cpp",
+    "limits": "cpp",
+    "random": "cpp",
+    "ratio": "cpp",
+    "valarray": "cpp",
+    "string": "cpp",
+    "iomanip": "cpp"
   }
 }

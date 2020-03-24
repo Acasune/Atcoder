@@ -1,0 +1,44 @@
+
+void dijkstra(int s){
+  fill(G,G+100,INF);
+  fill(used,used+100,false);
+  G[s]=0;
+  while (true){
+    v=-1;
+    REP(u,0,N){
+      if(!used[u]&&(v==-1||G[u]<G[v]))v=u;
+    }
+    if(v==-1)break;
+    used[v]=true;
+    REP(u,0,N){
+      G[u]=min(G[u],G[v]+cost[v][u]);
+    }
+  }
+}
+
+struct edge{
+  ll to,cost;
+};
+
+vector<ll> dijkstra2(ll s, vector<edge> G[]){
+  vector<ll> d(V);
+  REP(i,0,V)d[i]=INF;
+  d[s]=0;
+  priority_queue<P, vector<P>, greater<P> > q;
+  q.push(make_pair(0,s));
+
+  while(!q.empty()){
+    P p = q.top();
+    q.pop();
+    ll v=p.second;
+    if(d[v]<p.first)continue;
+    REP(i,0,G[v].size()){
+      edge e = G[v][i];
+      if(d[e.to]>d[v]+e.cost){
+        d[e.to]=d[v]+e.cost;
+        q.push(P(d[e.to],e.to));
+      }
+    }
+  }
+  return d;
+}

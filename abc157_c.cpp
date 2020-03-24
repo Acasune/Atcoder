@@ -4,7 +4,6 @@ typedef long long ll;
 typedef long double lb;
 typedef vector<int,vector<int>> vec;
 typedef pair<int,int> P;
-typedef long double ld;
 #define REP(i,j,n) for (int i=j;i<(n);i++)
 #define RREP(i,n,j) for (int i = n; j<i;i--)
 #define print(out) cout<< out  << "\n";
@@ -14,5 +13,26 @@ const int INF = 1e9;
 
 int main(){
   int N,M;cin>>N>>M;
-  print((100*(N-M)+1900*M*4))
+  vector<int> S(M), C(M);
+  REP(i,0,M){cin>>S[i]>>C[i];--S[i];}
+  REP(n1,0,1000){
+    string n=to_string(n1);
+    bool flg=true;
+    if(n.size()!=N){
+      continue;
+    }
+    //print(n<<(n.at(0)))
+    REP(m,0,M){
+      if(n.at(S[m])!=(char)(C[m]+'0')){
+        flg=false;
+        break;
+      }
+    }
+    if(flg){
+      print(n)
+      return 0;
+    }
+  }
+  print("-1")
+
 }
