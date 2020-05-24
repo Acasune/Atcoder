@@ -1,11 +1,8 @@
 ll mod_pow(ll x,ll n,ll m){
     if(n==0) return 1;
     ll res=mod_pow(x*x%m,n/2,m);
-    //cout<<n<<"-"<<res<<"-"<<res*x<<"\n";
-    if(n&1) {//cout<<x<<"-"<<res*x<<"\n";
-      cout<<n<<"-"<<res<<"-"<<res*x<<"\n";
+    if(n&1) {
       res=res*x%m;
     }
-    //print(n)
     return res;
 }

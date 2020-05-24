@@ -1,59 +1,47 @@
 #include <bits/stdc++.h>
-
+#define rep(i,n)for(int i=0;i<n;i++)
+#define int long long
+#define mod 1000000007
 using namespace std;
-typedef long long ll;
-typedef long double lb;
-#define mod 10000000007
-#define REP(i,j,n) for (int i=j;i<(n);i++)
-#define RREP(i,n) for (int i = n; 0<i;i--)
-#define print(out) cout<< out  << "\n"
-#define n N
-int N,A,B,k;
-long long c[1000000000+1];
+typedef pair<int, int>P;
 
-void choose() {
-  REP(r,0,N+1){
-   if(r == 0 || r == N)continue;
-   // store C(n,r) in a matrix   
-   int c[r+1];
-   int i,j;
-   for(i=0;i<=n;i++) {
-      // C(i,0) = 1 for i = 0...n  
-      c[0] = 1;
-   }
-   for(j=0;j<=r;j++) {
-      // if n = 0, C(n,r) = 0 for all 'r'
-      c[j] = 0;
-   }
-   for(i=1;i<=n;i++) {
-      for(j=1;j<=r;j++) {
-         if (i == j) {
-            // C(n,n) = 1
-            c[j] = 1;
-         }
-         else if (j > i) {
-            // case when r > n in C(n,r)        
-            	c[j] = 0;
-         }
-         else {
-            // apply the standard recursive formula        
-            c[j] = c[j-1] + c[j];
-         }
-      }
-   }
-  }
+
+int kai(int x, int y) {
+	int res = 1;
+	for (int i = x - y + 1; i <= x; i++) {
+		res *= i; res %= mod;
+	}
+	return res;
 }
+int mod_pow(int x, int y, int m) {
+	int res = 1;
+	while (y) {
+		if (y & 1) {
+			res = res * x % m;
+		}
+		x = x * x % m;
+		y >>= 1;
+	}
+	return res;
+}
+int comb(int x, int y) {
+	if (y > x)return 0;
+	return kai(x, y) * mod_pow(kai(y, y), mod - 2, mod) % mod;
+}
+void debug_out() { cerr << endl; }
+ 
+template <typename Head, typename... Tail>
+void debug_out(Head H, Tail... T) {
+	cerr << " " << to_string(H);
+	debug_out(T...);
+}
+ 
+#define debug(...) cerr << "[" << #__VA_ARGS__ << "]:", debug_out(__VA_ARGS__)
 
-int main(){
-  int N,A,B;cin>>N>>A>>B;
-  ll ans=0;
-  choose();
-  REP(i,0,N+1){
-    if(i==A||i==B){
-      ans=c[i];
-    }
-  }
-
-  cout<<ans<<"\n";
-
+int n, a, b;
+signed main() {
+	cin >> n >> a >> b;
+	int p = (mod_pow(2, n, mod) - 1 + mod) % mod;
+	int q = (comb(n, a) + comb(n, b)) % mod;
+	cout << (p - q + mod) % mod << endl;
 }
